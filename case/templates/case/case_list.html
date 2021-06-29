@@ -1,0 +1,78 @@
+
+{% extends 'case/base.html' %}
+{% block style %}
+<style>
+
+.h_text {
+    text-align: center;
+}
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 500px;
+}
+
+td, th {
+    width: 500px;
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+#color_grade {
+    background-color: #dddddd;
+}
+.center_table {
+    margin-right:auto;
+    margin-left: auto;
+}
+
+tr.static_text {
+    background-color: #009933;
+    width: 100px;
+}
+.button_class {
+    margin-top: 10px;
+    float: right;
+    margin-right: 270px;
+}
+
+</style>
+
+{% endblock %}
+{% block title %}Список{% endblock %}
+{% block content %} 
+
+<h1 class="h_text">Список дел</h1>
+<div>
+    <table class="center_table">
+        <tr class="static_text">
+          <th>Название</th>
+          <th>Имя клиента</th>
+          <th>Тип дела</th>
+          <th></th>
+        </tr>
+        {% if cases %}
+          {% for element in cases%}
+            
+            <tr id="color_grade">
+               
+                    <td>{{ element.title }}</td>
+                    <td>{{ element.client_name }}</td>
+                    <td>{{ element.case_type }}</td>
+                </a>
+            </tr>
+            
+          {% endfor %}
+        {% else %}
+            <p>Список дел пуст</p>
+        {% endif %}
+      </table>
+      
+</div>
+
+{% endblock %}
+{% block script %}
+
+
+{% endblock %}
+
